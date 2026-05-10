@@ -47,3 +47,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Scroll Event
 window.addEventListener("scroll", revealSections);
+document.addEventListener("DOMContentLoaded", () => {
+    // ... your existing code (typewriter, icons, etc.)
+
+    const burgerBtn = document.getElementById('burger-btn');
+    const closeBtn = document.getElementById('close-menu');
+    const sideMenu = document.getElementById('side-menu');
+    const overlay = document.getElementById('menu-overlay');
+    const body = document.body;
+
+    function toggleMenu() {
+        sideMenu.classList.toggle('open');
+        overlay.classList.toggle('hidden');
+        // Small timeout to allow 'hidden' to be removed before changing opacity
+        setTimeout(() => overlay.classList.toggle('show'), 10);
+        body.classList.toggle('menu-open');
+    }
+
+    burgerBtn.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a navigation link inside it (if you add links later)
+    const sideLinks = sideMenu.querySelectorAll('a');
+    sideLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (sideMenu.classList.contains('open')) toggleMenu();
+        });
+    });
+});
