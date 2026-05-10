@@ -24,8 +24,46 @@
                 <a href="#education" class="hover:text-accent transition-colors">Education</a>
                 <!--<a href="#contact" class="hover:text-white bg-accent/10 px-4 py-2 rounded-full border border-accent/20 transition-all">Let's Talk</a>-->
             </div>
+
+            <button id="burger-btn" class="p-2 text-slate-300 hover:text-accent transition-colors focus:outline-none" aria-label="Toggle Menu">
+                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+            </button>
+            
         </div>
     </nav>
+
+        <div id="side-menu" class="fixed top-0 right-0 h-full w-full sm:w-80 bg-slate-900 z-[70] translate-x-full transition-transform duration-300 ease-in-out border-l border-slate-800 shadow-2xl">
+        <div class="p-8 h-full flex flex-col">
+            <button id="close-menu" class="self-end p-2 text-slate-400 hover:text-white mb-10">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+
+            <h4 class="text-xs uppercase tracking-widest text-accent font-bold mb-8">Contact & Assets</h4>
+            
+            <div class="space-y-8">
+                <div>
+                    <span class="block text-[10px] text-slate-500 uppercase tracking-wider mb-1">Email</span>
+                    <a href="mailto:jnofuente1998@gmail.com" class="text-white hover:text-accent transition-colors break-words">jnofuente1998@gmail.com</a>
+                </div>
+
+                <div>
+                    <span class="block text-[10px] text-slate-500 uppercase tracking-wider mb-1">Mobile</span>
+                    <p class="text-white">+63 9608135785</p>
+                </div>
+
+                <div class="pt-6 border-t border-slate-800">
+                    <a href="Nofuente Jerome - CV" download="Jerome_Nofuente_CV" class="flex items-center justify-center gap-3 w-full bg-accent hover:bg-green-600 text-navy font-bold py-4 rounded-xl transition-all shadow-lg shadow-accent/10">
+                        <i data-lucide="download" class="w-5 h-5"></i>
+                        DOWNLOAD CV
+                    </a>
+                    <p class="text-[10px] text-slate-500 mt-3 text-center italic">Available in PDF format</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[65] hidden opacity-0 transition-opacity duration-300"></div>
+
 
     <section class="min-h-screen flex items-center justify-center pt-20 hero-gradient px-6">
         <div class="max-w-4xl text-center">
@@ -305,7 +343,7 @@
 
         <div class="max-w-6xl mx-auto pt-8 border-t border-slate-800 text-center">
             <p class="text-[10px] uppercase tracking-[0.3em] text-slate-600 mb-2">
-                Copyright © 2026, jeromenofuente.com..
+                Copyright © 2026, jeromenofuente.com.
             </p>
             <p class="text-[10px] uppercase tracking-[0.1em] text-slate-700 italic">
                 Built by Jerome
