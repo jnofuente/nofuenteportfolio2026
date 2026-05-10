@@ -64,3 +64,17 @@ h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
 
 @keyframes blink { 50% { border-color: transparent; } }
 #typewriter { animation: blink 0.8s infinite; }
+/* Sidebar states */
+#side-menu.open {
+    transform: translateX(0);
+}
+
+#menu-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Optional: Prevent scrolling when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
