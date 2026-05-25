@@ -1,356 +1,971 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" data-theme="dark">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jerome Nofuente Portfolio 2026</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jerome Nofuente — Aspiring IT Professional & Web Developer</title>
+  <meta name="description"
+    content="Jerome Nofuente — IT graduate, Content Moderation specialist, Product Support Analyst, and aspiring web developer based in Manila, Philippines." />
+  <meta name="keywords"
+    content="Jerome Nofuente, IT Professional, Web Developer, Manila, Content Moderation, Product Support" />
+  <meta property="og:title" content="Jerome Nofuente — IT Professional & Web Developer" />
+  <meta property="og:description"
+    content="Detail-oriented IT graduate passionate about web development, problem-solving, and creating modern digital experiences." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a0a12" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
-<body class="bg-navy text-slate-300 antialiased">
 
-    <nav class="fixed w-full z-50 bg-navy/80 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white tracking-tighter">JN<span class="text-accent">.</span></a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-accent transition-colors">About</a>
-                <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
-                <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
-                <a href="#experience" class="hover:text-accent transition-colors">Experience</a>
-                <a href="#education" class="hover:text-accent transition-colors">Education</a>
-                <!--<a href="#contact" class="hover:text-white bg-accent/10 px-4 py-2 rounded-full border border-accent/20 transition-all">Let's Talk</a>-->
-            </div>
+<body>
 
-            <button id="burger-btn" class="p-2 text-slate-300 hover:text-accent transition-colors focus:outline-none" aria-label="Toggle Menu">
-                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
-            </button>
-            
-        </div>
-    </nav>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-        <div id="side-menu" class="fixed top-0 right-0 h-full w-full sm:w-80 bg-slate-900 z-[70] translate-x-full transition-transform duration-300 ease-in-out border-l border-slate-800 shadow-2xl">
-        <div class="p-8 h-full flex flex-col">
-            <button id="close-menu" class="self-end p-2 text-slate-400 hover:text-white mb-10">
-                <i data-lucide="x" class="w-8 h-8"></i>
-            </button>
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
-            <h4 class="text-xs uppercase tracking-widest text-accent font-bold mb-8">Contact & Assets</h4>
-            
-            <div class="space-y-8">
-                <div>
-                    <span class="block text-[10px] text-slate-500 uppercase tracking-wider mb-1">Email</span>
-                    <a href="mailto:jnofuente1998@gmail.com" class="text-white hover:text-accent transition-colors break-words">jnofuente1998@gmail.com</a>
-                </div>
-
-                <div>
-                    <span class="block text-[10px] text-slate-500 uppercase tracking-wider mb-1">Mobile</span>
-                    <p class="text-white">+63 9608135785</p>
-                </div>
-
-                <div class="pt-6 border-t border-slate-800">
-                    <a href="Nofuente Jerome - CV.pdf" download="Jerome_Nofuente_CV" class="flex items-center justify-center gap-3 w-full bg-accent hover:bg-green-600 text-navy font-bold py-4 rounded-xl transition-all shadow-lg shadow-accent/10">
-                        <i data-lucide="download" class="w-5 h-5"></i>
-                        DOWNLOAD CV
-                    </a>
-                    <p class="text-[10px] text-slate-500 mt-3 text-center italic">Available in PDF format</p>
-                </div>
-            </div>
-        </div>
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-name">JN<span>.</span></div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
     </div>
+    <div class="loader-text">Initializing Portfolio</div>
+  </div>
 
-    <div id="menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[65] hidden opacity-0 transition-opacity duration-300"></div>
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+  <!-- ======================== NAV ======================== -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">JN<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li><br><br>
+      <li><a href="#experience">Experience</a></li><br><br>
+      <li><a href="#skills">Skills</a></li><br><br>
+      <li><a href="#projects">Projects</a></li><br><br>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#experience" onclick="closeMobile()">Experience</a>
+    <a href="#skills" onclick="closeMobile()">Skills</a>
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#projects" onclick="closeMobile()">Projects</a>
+    <a href="#learning" onclick="closeMobile()">Learning</a>
+    <a href="#tools" onclick="closeMobile()">Tools</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+  </div>
 
-    <section class="min-h-screen flex items-center justify-center pt-20 hero-gradient px-6">
-        <div class="max-w-4xl text-center">
-            <div class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider text-accent uppercase bg-accent/10 rounded-full border border-accent/20">
-                Open to entry-level roles
-            </div>
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">Jerome Nofuente</h1>
-            <p class="text-xl md:text-2xl text-slate-400 mb-8 max-w-2xl mx-auto min-h-[1.5em]">
-                <span id="typewriter" class="text-sky-400 border-r-2 border-accent pr-1"></span>
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-                <a href="#projects" class="bg-accent hover:bg-green-600 text-navy font-bold py-3 px-8 rounded-lg transition-all transform hover:-translate-y-1">View Projects</a>
-                <a href="#experience" class="border border-slate-700 hover:border-accent py-3 px-8 rounded-lg transition-all">Work History</a>
-                <!-- <a href="#contact" class="border border-slate-700 hover:border-accent py-3 px-8 rounded-lg transition-all">Contact Me</a> -->
-            </div>
-
-            <div class="flex justify-center space-x-6">
-                <a href="https://github.com/JNofuente" target="_blank" class="social-link" aria-label="GitHub"><img src="giticon.png">
-                    <i data-lucide="github" class="w-6 h-6"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/jnofuente/" target="_blank" class="social-link" aria-label="LinkedIn"><img src="linkedinicon.png">
-                    <i data-lucide="linkedin" class="w-6 h-6"></i>
-                </a>
-                <a href="https://www.facebook.com/Jeromeqwe" target="_blank" class="social-link" aria-label="Facebook"><img src="fbicon.png">
-                    <i data-lucide="facebook" class="w-6 h-6"></i>
-                </a>
-                <a href="https://www.instagram.com/jerome.hehe" target="_blank" class="social-link" aria-label="Instagram"><img src="instaicon.png">
-                    <i data-lucide="instagram" class="w-6 h-6"></i>
-                </a>
-            </div>
+  <!-- ======================== HERO ======================== -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+      <div class="hero-glow-3"></div>
+      <div class="particles" id="particles"></div>
+    </div>
+    <div class="hero-inner section-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Available for opportunities
         </div>
-    </section>
-
-    <section id="about" class="py-24 px-6 max-w-6xl mx-auto reveal">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="relative">
-                <div class="absolute -inset-4 bg-accent/20 blur-2xl rounded-full"></div>
-                <div class="relative glass-card p-8 rounded-2xl border-slate-700">
-                    <h2 class="text-3xl font-bold text-white mb-6">About me</h2>
-                    <p class="mb-4">I am a motivated and results-driven individual with a strong commitment to delivering exceptional outcomes in every endeavor.</p>
-                    <p class="mb-4">With proven expertise in basic IT knowledge, problem-solving, communication, or video/photo editing, I thrive in dynamic environments where I can contribute to organizational success and personal growth.</p>
-                    <p class="mb-4">My ability to adapt quickly, collaborate effectively, and maintain a solution-oriented mindset makes me a valuable asset to any team.</p>
-                    <p class="mb-4">I am eager to bring my dedication and creativity to working toward achieving impactful results and building a lasting positive influence.</p>
-                    <div class="flex items-center gap-4 p-4 bg-navy rounded-xl border border-slate-800">
-                        <i data-lucide="gamepad-2" class="text-sky-400 w-5 h-5"></i>
-                        <span class="text-sm italic">Outside my professional life, I enjoy gaming or going out for a bike ride and stay active.</span>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h3 class="text-2xl font-bold text-white mb-6">Strengths & Focus</h3>
-                <ul class="space-y-4">
-                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-accent shrink-0 w-5 h-5"></i> <span><strong>Strong attention to detail and accuracy.</span></li><br>
-                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-accent shrink-0 w-5 h-5"></i> <span><strong>Analytical thinking and problem-solving skills.</span></li><br>
-                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-accent shrink-0 w-5 h-5"></i> <span><strong>Ability to work independently and meet deadlines.</span></li><br>
-                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-accent shrink-0 w-5 h-5"></i> <span><strong>Clear and effective communication.</span></li><br>
-                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-accent shrink-0 w-5 h-5"></i> <span><strong>Team player with a positive and collaborative mindset.</span></li><br>
-                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-accent shrink-0 w-5 h-5"></i> <span><strong>Improving HTML, CSS, and JavaScript skills.</span></li><br>
-                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-accent shrink-0 w-5 h-5"></i> <span><strong>Expanding knowledge in modern web tools and frameworks.</span></li><br>
-                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-accent shrink-0 w-5 h-5"></i> <span><strong>Applying analytical thinking in content evaluation and decision-making</span></li><br>
-                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-accent shrink-0 w-5 h-5"></i> <span><strong>Growing a portfolio with real-world projects.</span></li><br>
-                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-accent shrink-0 w-5 h-5"></i> <span><strong>Improving workflow efficiency using editing tools (e.g., Photoshop, Capcut, Canva).</span></li><br>
-
-                
-                
-                </ul>
-            </div>
+        <h1 class="hero-name">Jerome<br><span class="accent">Nofuente</span></h1>
+        <div class="hero-headline">Aspiring Web Developer · IT Knowledge · Content Moderation & Support Representative
         </div>
-    </section>
-
-    <section id="skills" class="py-24 bg-slate-900/50 px-6 reveal">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white mb-16">My Toolbox</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card p-6 rounded-xl hover:border-accent/50 transition-all">
-                    <i data-lucide="code-2" class="mx-auto mb-4 text-accent w-8 h-8"></i>
-                    <h3 class="text-xl font-bold text-white mb-4">Technical</h3>
-                    <p class="text-sm">HTML5, CSS3, Modern UI Design, Responsive Layouts.</p>
-                </div>
-                <div class="glass-card p-6 rounded-xl hover:border-sky-500/50 transition-all">
-                    <i data-lucide="shield-check" class="mx-auto mb-4 text-sky-400 w-8 h-8"></i>
-                    <h3 class="text-xl font-bold text-white mb-4">Professional</h3>
-                    <p class="text-sm">Content Moderation, QA Mindset, Product Support Analysis, Photo & Video editing.</p>
-                </div>
-                <div class="glass-card p-6 rounded-xl hover:border-purple-500/50 transition-all">
-                    <i data-lucide="layout" class="mx-auto mb-4 text-purple-400 w-8 h-8"></i>
-                    <h3 class="text-xl font-bold text-white mb-4">Tools</h3>
-                    <p class="text-sm">Photoshop, Canva, Capcut, GitHub, VS Code, MySQL Workbench, Coda, Microsoft (Word, Excel, Powerpoint)</p>
-                </div>
-            </div>
+        <div class="hero-typing-wrap">
+          <span class="typing-prefix">I am a</span>
+          <span class="typing-text" id="typingText"></span>
         </div>
-    </section>
-
-    <section id="projects" class="py-24 px-6 max-w-6xl mx-auto reveal">
-        <h2 class="text-3xl font-bold text-white mb-12 text-center">Featured Work</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="group glass-card rounded-xl overflow-hidden hover:-translate-y-2 transition-all">
-                <div class="h-40 bg-slate-800 flex items-center justify-center">
-                    <i data-lucide="monitor" class="w-12 h-12 text-slate-600"></i>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-white">Personal Portfolio</h3>
-                    <p class="text-sm text-slate-500 mt-2 mb-4">Clean, modern responsive portfolio using Tailwind.</p>
-                    <a href="#" class="text-accent text-sm font-bold flex items-center gap-1">Live Demo <i data-lucide="external-link" class="w-3 h-3"></i></a>
-                </div>
-            </div>
-             <!-- FOR ADDITIONAL FEATURED WORK
-            <div class="group glass-card rounded-xl overflow-hidden hover:-translate-y-2 transition-all">
-                <div class="h-40 bg-slate-800 flex items-center justify-center">
-                    <i data-lucide="monitor" class="w-12 h-12 text-slate-600"></i>
-                </div>
-               <div class="p-6">
-                    <h3 class="font-bold text-white">Personal Portfolio</h3>
-                    <p class="text-sm text-slate-500 mt-2 mb-4">Clean, modern responsive portfolio using Tailwind.</p>
-                    <a href="#" class="text-accent text-sm font-bold flex items-center gap-1">Live Demo <i data-lucide="external-link" class="w-3 h-3"></i></a>
-                </div> -->
-            </div>
+        <p class="hero-desc">Detail-oriented IT graduate with 3+ years of BPO experience in Content Moderation and
+          Support Representative roles. Passionate about web development, problem-solving, and creating modern digital
+          experiences.</p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary">🚀 View Projects</a>
+          <a href="Nofuente Jerome - CV.pdf" target="_blank" class="btn-secondary" id="dlResume">📄
+            View Resume</a>
+          <a href="#contact" class="btn-ghost">✉️ Contact Me</a>
         </div>
-    </section>
-
-    <section id="experience" class="py-24 bg-slate-900/30 px-6 reveal">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-white text-center mb-16">Work History</h2>
-            <div class="space-y-8">
-                <div class="glass-card p-6 rounded-xl border-l-4 border-slate-700">
-                    <h4 class="font-bold text-white">Content Moderator</h4>
-                    <span class="text-sky-400 text-sm"><a href="https://www.accenture.com/ph-en" target="_blank">Accenture</a></span>
-                    <p class="text-sm mt-2">Review content to identify potential intellectual property violations and ensure compliance with platform policies.</p>
-                    <p class="text-sm mt-2">Assess and verify the authenticity of account ownership to prevent misuse or fraud.</p>
-                    <p class="text-sm mt-2">Validate and monitor payment transactions for accuracy and security.</p>
-                    <p class="text-sm mt-2">Support and improve AI classifiers by providing accurate content evaluations and feedback.</p>
-                </div>
-                <div class="glass-card p-6 rounded-xl border-l-4 border-accent">
-                    <h4 class="font-bold text-white">Product Support Analyst</h4>
-                    <span class="text-sky-400 text-sm"><a href="https://www.concentrix.com/" target="_blank">Concentrix</a></span>
-                    <p class="text-sm mt-2">Troubleshoot product issues and provide step-by-step solutions.</p>
-                    <p class="text-sm mt-2">Investigate reported problems and escalate complex cases to higher-level support.</p>
-                    <p class="text-sm mt-2">Educate customers on product features, updates, and best practices.</p>
-                    <p class="text-sm mt-2">Meet quality, productivity, and customer satisfaction targets.</p>
-                </div>
-            </div>
+        <div class="hero-socials">
+          <a href="mailto:jNofuente1998@gmail.com" class="social-icon" title="Email">✉️</a>
+          <a href="https://www.instagram.com/jerome.hehe/" class="social-icon" title="Instagram">📸</a>
+          <a href="https://www.linkedin.com/in/jnofuente/" class="social-icon" title="LinkedIn">💼</a>
+          <a href="https://www.facebook.com/Jeromeqwe" class="social-icon" title="Facebook">📘</a>
         </div>
-    </section>
-
-    <section id="education" class="py-24 px-6 max-w-4xl mx-auto reveal">
-        <h2 class="text-3xl font-bold text-white text-center mb-16">Education & Learning</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            
-            <div class="glass-card p-8 rounded-2xl border-slate-700 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                    <i data-lucide="graduation-cap" class="w-16 h-16"></i>
-                </div>
-                <div class="text-accent mb-2"><i data-lucide="calendar" class="w-4 h-4 inline mr-2"></i>Graduated 2015 - 2020</div>
-                <h3 class="text-xl font-bold text-white mb-1">Bachelor of Science in Information Technology Degree</h3>
-                <p class="text-sky-400 text-sm mb-4"><a href="https://ieti.edu.ph/" target="_blank">International Engineering and Technology Institute</a></p>
-                <p class="text-sm text-slate-400">Focused on the study of computing technologies, including software development, networking, cybersecurity, database management, and IT infrastructure.</p>
-            </div>
-
-            <div class="glass-card p-8 rounded-2xl border-accent/20 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                    <i data-lucide="book-open" class="w-16 h-16 text-accent"></i>
-                </div>
-                <div class="text-accent mb-2"><i data-lucide="loader" class="w-4 h-4 inline mr-2 animate-spin"></i>In Progress</div>
-                <h3 class="text-xl font-bold text-white mb-1">Data Analyst</h3>
-                <p class="text-sky-400 text-sm mb-4">Self-Paced / Online Bootcamps</p>
-                <ul class="text-sm text-slate-400 space-y-2">
-                    <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-sky-400"></i> Analyzing Data</li>
-                    <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-sky-400"></i> Communicating Insights</li>
-                    <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-sky-400"></i> Data Cleaning & Preparation</li>
-                    <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-sky-400"></i> Data Visualization</li>
-                    <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-sky-400"></i> Data Collection</li>
-                
-                </ul>
-            </div>
-
-            <div class="glass-card p-8 rounded-2xl border-accent/20 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                    <i data-lucide="book-open" class="w-16 h-16 text-accent"></i>
-                </div>
-                <div class="text-accent mb-2"><i data-lucide="loader" class="w-4 h-4 inline mr-2 animate-spin"></i>In Progress</div>
-                <h3 class="text-xl font-bold text-white mb-1">Web Development Path</h3>
-                <p class="text-sky-400 text-sm mb-4">Self-Paced / Online Bootcamps</p>
-                <ul class="text-sm text-slate-400 space-y-2">
-                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent"></i> Responsive Design (HTML/CSS)</li>
-                    <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-sky-400"></i> JavaScript Fundamentals</li>
-                    <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-sky-400"></i> Version Control with Git</li>
-                </ul>
-            </div>
-
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-avatar">JN</div>
+        <div class="hero-card-name">Jerome Nofuente</div>
+        <div class="hero-card-role">Career-driven · Manila, PH 🇵🇭</div>
+        <div class="hero-card-stats">
+          <div class="hero-card-stat">
+            <div class="hero-card-stat-num">3+</div>
+            <div class="hero-card-stat-label">Years Experience</div>
+          </div>
+          <div class="hero-card-stat">
+            <div class="hero-card-stat-num">IT</div>
+            <div class="hero-card-stat-label">Graduate</div>
+          </div>
+          <div class="hero-card-stat">
+            <div class="hero-card-stat-num">2</div>
+            <div class="hero-card-stat-label">Companies</div>
+          </div>
+          <div class="hero-card-stat">
+            <div class="hero-card-stat-num">∞</div>
+            <div class="hero-card-stat-label">Drive to Grow</div>
+          </div>
         </div>
-    </section>
-
-  <!-- FOR CHATTING SENDING MESSAGE TO ME
-      <section id="contact" class="py-24 px-6 max-w-4xl mx-auto reveal">
-        <div class="glass-card rounded-2xl p-8 border-accent/20">
-           <h2 class="text-3xl font-bold text-white text-center mb-8">Get In Touch</h2>
-            <form class="space-y-4">
-                <input type="text" placeholder="Name" class="w-full bg-navy border border-slate-700 rounded-lg p-3 focus:border-accent outline-none">
-                <input type="email" placeholder="Email" class="w-full bg-navy border border-slate-700 rounded-lg p-3 focus:border-accent outline-none">
-                <textarea placeholder="Message" rows="4" class="w-full bg-navy border border-slate-700 rounded-lg p-3 focus:border-accent outline-none"></textarea>
-                <button class="w-full bg-accent text-navy font-bold py-3 rounded-lg hover:bg-green-600 transition-all shadow-lg shadow-accent/20">Send Message</button>
-            </form>
+        <div class="hero-card-tags">
+          <span class="hero-tag">HTML</span>
+          <span class="hero-tag">CSS</span>
+          <span class="hero-tag purple">Trust & Safety</span>
+          <span class="hero-tag purple">Product Support</span>
+          <span class="hero-tag green">Cyclist</span>
+          <span class="hero-tag green">Gamer</span>
         </div>
-    </section> -->
-     <footer class="bg-navy pt-20 pb-10 px-6 border-t border-slate-800 relative">
-        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
+      </div>
+    </div>
+  </section>
 
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-        
-            <div class="col-span-1 md:col-span-1">
-                <h4 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Jerome Nofuente</h4>
-                <p  class="text-sm text-slate-400">A results-driven professional transitioning from 3 years of Content Moderation and Product Support into 
-                Front-End Web Development. Combining an analytical BPO mindset with a passion for building 
-                clean, responsive digital experiences.</p>
-                <br>
-                <div class="flex space-x-0 mb-8">
-                    <a href="https://github.com/JNofuente" target="_blank" class="social-link" aria-label="GitHub"><img src="giticon.png">
-                    <i data-lucide="github" class="w-6 h-6"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/jnofuente/" target="_blank" class="social-link" aria-label="LinkedIn"><img src="linkedinicon.png">
-                    <i data-lucide="linkedin" class="w-6 h-6"></i>
-                </a>
-                <a href="https://www.facebook.com/Jeromeqwe" target="_blank" class="social-link" aria-label="Facebook"><img src="fbicon.png">
-                    <i data-lucide="facebook" class="w-6 h-6"></i>
-                </a>
-                <a href="https://www.instagram.com/jerome.hehe" target="_blank" class="social-link" aria-label="Instagram"><img src="instaicon.png">
-                    <i data-lucide="instagram" class="w-6 h-6"></i>
-                </a>
-                </div>
-                <a href="#" class="border border-slate-700 hover:text-white py-2 px-5 rounded-lg transition-all inline-flex items-center gap-2 text-[10px] font-bold tracking-widest text-slate-400 hover:text-accent">
-                    <i data-lucide="chevron-up" class="w-4 h-4"></i> BACK TO TOP
-                </a>
+  <!-- ======================== ABOUT ======================== -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-visual reveal-left">
+          <div class="about-portrait">
+            <div class="about-portrait-icon">👨‍💻</div>
+            <div class="about-portrait-text">JEROME NOFUENTE</div>
+            <div class="about-portrait-sub">Manila, Philippines</div>
+          </div>
+          <div class="about-badge">BSIT Graduate 🎓</div>
+          <div class="about-shape"></div>
+          <div class="about-shape2"></div>
+        </div>
+        <div class="about-text reveal-right">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Building Digital<br><span class="grad-text">Experiences</span></h2>
+          <p>Hi, I'm <strong>Jerome</strong> — a BS Information Technology graduate based in <span
+              class="highlight">Manila, Philippines</span>, with a strong passion for technology, continuous learning,
+            and creating modern digital solutions.</p>
+          <p>With <strong>3+ years of professional experience</strong> in <span class="highlight">Content
+              Moderation</span> at Accenture, I developed a sharp eye for detail, strong analytical thinking, and
+            disciplined workflows. My transition into <strong>Product Support</strong> at Concentrix further expanded my
+            technical troubleshooting skills and user-focused mindset.</p>
+          <p>I'm currently building my expertise in <span class="highlight">web development</span> — working with HTML,
+            CSS, JavaScript, and modern design tools. My goal is to grow into a well-rounded <strong>Frontend
+              Developer</strong> while leveraging my IT background and creative editing skills to build impactful
+            digital products.</p>
+          <p>Outside of tech, I'm a passionate <strong>gamer</strong>, an enthusiastic <strong>cyclist</strong>, and a
+            creative <strong>photo/video editor</strong> — qualities that fuel my attention to detail, perseverance, and
+            creative problem-solving in everything I do.</p>
+          <div class="about-stats">
+            <div class="about-stat reveal delay-1">
+              <div class="about-stat-num" data-count="3">0</div>
+              <div class="about-stat-label">Years in BPO Industry</div>
             </div>
-                
-          
-
-
-
-            <div>
-                <h4 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Contact</h4>
-                <ul class="space-y-4 text-sm text-slate-500">
-                    <li class="flex items-center gap-3">
-                        <i data-lucide="mail" class="w-4 h-4 text-accent/70"></i>
-                        <a href="mailto:your.email@example.com" class="hover:text-white transition-colors">jnofuente198@gmail.com</a>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i data-lucide="phone" class="w-4 h-4 text-accent/70"></i>
-                        <span>+63 960 813 5785</span>
-                    </li>
-                    <li class="flex items-center gap-3 text-[11px] italic">
-                        <i data-lucide="map-pin" class="w-4 h-4 text-accent/70"></i>
-                        <span>Sucat Muntinlupa, Philippines</span>
-                    </li>
-                </ul>
+            <div class="about-stat reveal delay-2">
+              <div class="about-stat-num">BSIT</div>
+              <div class="about-stat-label">IT Graduate</div>
             </div>
-
-                        <div>
-                <h4 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Site Map</h4>
-                <ul class="space-y-4 text-sm">
-                    <li><a href="#about" class="text-slate-500 hover:text-white transition-colors">About Me</a></li>
-                    <li><a href="#projects" class="text-slate-500 hover:text-white transition-colors">Projects</a></li>
-                    <li><a href="#experience" class="text-slate-500 hover:text-white transition-colors">Experience</a></li>
-                    <li><a href="#education" class="text-slate-500 hover:text-white transition-colors">Education</a></li>
-                </ul>
+            <div class="about-stat reveal delay-3">
+              <div class="about-stat-num" data-count="2">0</div>
+              <div class="about-stat-label">Major Companies</div>
             </div>
+            <div class="about-stat reveal delay-4">
+              <div class="about-stat-num">🚀</div>
+              <div class="about-stat-label">Ambitious & Growth-Driven</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-             <!--<div>
-                <h4 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Interests</h4>
-                <ul class="space-y-4 text-sm text-slate-500">
-                    <li>Cycling</li>
-                    <li>Gaming</li>
-                    <li>Web Development</li>
-                </ul>
-            </div>-->
+  <!-- ======================== EXPERIENCE ======================== -->
+  <section id="experience">
+    <div class="section-inner">
+      <div class="section-label reveal">Experience</div>
+      <h2 class="section-title reveal">Professional<br><span class="grad-text">Timeline</span></h2>
+      <p class="section-sub reveal">A track record built on precision, problem-solving, and continuous growth across
+        leading global companies.</p>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">🛡️</div>
+          <div class="timeline-card">
+            <div class="timeline-company">Accenture</div>
+            <div class="timeline-role">Trust & Safety New Associate</div>
+            <div class="timeline-period">📅 2022 – 2025 · 3 Years</div>
+            <ul class="timeline-list">
+              <li>Reviewed and assessed digital content for intellectual property violations, maintaining platform
+                integrity across millions of submissions</li>
+              <li>Evaluated account authenticity and applied policy-based judgment to reduce fraudulent activity on
+                digital platforms</li>
+              <li>Optimized fraud detection workflows, contributing to improved accuracy and faster processing times
+              </li>
+              <li>Validated payment platform transactions to ensure compliance and protect users from financial fraud
+              </li>
+              <li>Collaborated with cross-functional teams to enhance platform safety systems and policy frameworks</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="max-w-6xl mx-auto pt-8 border-t border-slate-800 text-center">
-            <p class="text-[10px] uppercase tracking-[0.3em] text-slate-600 mb-2">
-                Copyright © 2026, jeromenofuente.com.
-            </p>
-            <p class="text-[10px] uppercase tracking-[0.1em] text-slate-700 italic">
-                Built by Jerome
-            </p>
+        <div class="timeline-item reveal delay-2">
+          <div class="timeline-dot">⚙️</div>
+          <div class="timeline-card">
+            <div class="timeline-company">Concentrix</div>
+            <div class="timeline-role">Product Support Analyst</div>
+            <div class="timeline-period">📅 2025 · 4 Months</div>
+            <ul class="timeline-list">
+              <li>Provided technical troubleshooting support for product-related issues, ensuring high customer
+                satisfaction scores</li>
+              <li>Assisted end users in resolving complex technical concerns through structured, step-by-step guidance
+              </li>
+              <li>Accurately documented bugs, issues, and resolutions for continuous product improvement feedback loops
+              </li>
+              <li>Collaborated closely with product teams to escalate, track, and resolve critical user-reported issues
+              </li>
+              <li>Contributed to improving the overall user experience through insightful support trend analysis</li>
+            </ul>
+          </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SKILLS ======================== -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-label reveal">Skills</div>
+      <h2 class="section-title reveal">Technical &<br><span class="grad-text">Soft Skills</span></h2>
+      <p class="section-sub reveal">A versatile skill set built across technical, analytical, and interpersonal domains
+        — ready to adapt to any challenge.</p>
+      <div class="skills-grid">
+
+        <div class="skill-category reveal">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">💻</div>
+            <div class="skill-cat-title">Technical Skills</div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Content Moderation</span><span
+                  class="skill-item-level">Expert</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.92"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">IT & Computer Proficiency</span><span
+                  class="skill-item-level">Advanced</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Product Support & Troubleshooting</span><span
+                  class="skill-item-level">Advanced</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.82"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Photo & Video Editing</span><span
+                  class="skill-item-level">Proficient</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.75"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Basic Web Development</span><span
+                  class="skill-item-level">Learning</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.42"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal delay-1">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon purple">🔍</div>
+            <div class="skill-cat-title">Analytical Skills</div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Attention to Detail</span><span
+                  class="skill-item-level">Expert</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.95"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Logical Reasoning</span><span
+                  class="skill-item-level">Advanced</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.88"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Problem Solving</span><span
+                  class="skill-item-level">Advanced</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Research & Analysis</span><span
+                  class="skill-item-level">Proficient</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.78"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal delay-2">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon green">🗣️</div>
+            <div class="skill-cat-title">Communication</div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Written Communication</span><span
+                  class="skill-item-level">Advanced</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Active Listening</span><span
+                  class="skill-item-level">Advanced</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.88"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Customer Support</span><span
+                  class="skill-item-level">Advanced</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.84"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Presentation Skills</span><span
+                  class="skill-item-level">Proficient</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.70"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal delay-3">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon orange">🤝</div>
+            <div class="skill-cat-title">Professional Skills</div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Adaptability</span><span
+                  class="skill-item-level">Expert</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.94"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Team Collaboration</span><span
+                  class="skill-item-level">Advanced</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.88"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Time Management</span><span
+                  class="skill-item-level">Advanced</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.82"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-header"><span class="skill-item-name">Accountability</span><span
+                  class="skill-item-level">Expert</span></div>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="0.90"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SERVICES ======================== -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="section-label reveal">What I Offer</div>
+      <h2 class="section-title reveal">Services &<br><span class="grad-text">Capabilities</span></h2>
+      <p class="section-sub reveal">From technical support to creative content — here's what I can bring to your team or
+        project.</p>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">🌐</div>
+          <div class="service-title">Website Creation</div>
+          <div class="service-desc">Building responsive, clean websites using HTML, CSS, and JavaScript. Growing every
+            day toward modern frontend development.</div>
+        </div>
+        <div class="service-card reveal delay-1">
+          <div class="service-icon">🛡️</div>
+          <div class="service-title">Content Moderation</div>
+          <div class="service-desc">Expert-level content review and Trust & Safety operations — policy enforcement,
+            fraud detection, and platform integrity.</div>
+        </div>
+        <div class="service-card reveal delay-2">
+          <div class="service-icon">⚙️</div>
+          <div class="service-title">Technical Support</div>
+          <div class="service-desc">Structured troubleshooting, issue documentation, and user-facing product support
+            with clear communication.</div>
+        </div>
+        <div class="service-card reveal delay-3">
+          <div class="service-icon">📸</div>
+          <div class="service-title">Photo Editing</div>
+          <div class="service-desc">Retouching, compositing, and creative photo manipulation using Adobe Photoshop and
+            Lightroom.</div>
+        </div>
+        <div class="service-card reveal delay-4">
+          <div class="service-icon">🎬</div>
+          <div class="service-title">Video Editing</div>
+          <div class="service-desc">Polished video production and editing with Adobe Premiere Pro and Canva for
+            short-form and long-form content.</div>
+        </div>
+        <div class="service-card reveal delay-5">
+          <div class="service-icon">🎨</div>
+          <div class="service-title">Basic UI Design</div>
+          <div class="service-desc">Clean, modern interface mockups and visual layouts using Canva and design
+            fundamentals for web projects.</div>
+        </div>
+        <div class="service-card reveal delay-6">
+          <div class="service-icon">🔍</div>
+          <div class="service-title">Product/User Support</div>
+          <div class="service-desc">Empathetic, detail-focused support operations — from issue intake to resolution and
+            documentation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== PROJECTS ======================== -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-label reveal">Work</div>
+      <h2 class="section-title reveal">Featured<br><span class="grad-text">Projects</span></h2>
+      <p class="section-sub reveal">A growing portfolio of web, creative, and technical projects — with more to come as
+        I continue my development journey.</p>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #0a0a1a, #0e1a2e);">
+            <span style="position:relative;z-index:1">🌐</span>
+            <div class="project-thumb-overlay"></div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span
+                class="project-tag">JavaScript</span></div>
+            <div class="project-title">Personal Portfolio Website</div>
+            <div class="project-desc">This very portfolio — designed and built from scratch with custom animations, dark
+              mode, scroll effects, and modern UI architecture.</div>
+            <div class="project-actions">
+              <a href="#" class="project-btn">🔗 Live Demo</a>
+              <a href="#" class="project-btn ghost">🐙 GitHub</a>
+            </div>
+          </div>
+        </div>
+        <!--
+      <div class="project-card reveal delay-1">
+        <span class="coming-soon-badge">COMING SOON</span>
+        <div class="project-thumb" style="background: linear-gradient(135deg, #0d1a0d, #0a1a0a);">
+          <span style="position:relative;z-index:1">📱</span>
+          <div class="project-thumb-overlay"></div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">Responsive</span></div>
+          <div class="project-title">Responsive Landing Page</div>
+          <div class="project-desc">A fully responsive product landing page with modern glassmorphism design, animated CTAs, and mobile-first layout.</div>
+          <div class="project-actions">
+            <a href="#" class="project-btn">🔗 Preview</a>
+            <a href="#" class="project-btn ghost">🐙 GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal delay-2">
+        <span class="coming-soon-badge">COMING SOON</span>
+        <div class="project-thumb" style="background: linear-gradient(135deg, #1a0a1a, #0d0a1a);">
+          <span style="position:relative;z-index:1">🎮</span>
+          <div class="project-thumb-overlay"></div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">Community</span></div>
+          <div class="project-title">Gaming Community Website</div>
+          <div class="project-desc">A community hub for gaming enthusiasts — featuring guild pages, forum structure, and event listings with dark gaming aesthetics.</div>
+          <div class="project-actions">
+            <a href="#" class="project-btn">🔗 Preview</a>
+            <a href="#" class="project-btn ghost">🐙 GitHub</a>
+          </div>
+        </div>
+      </div>
+-->
+        <div class="project-card reveal delay-3">
+          <span class="coming-soon-badge">COMING SOON</span>
+          <div class="project-thumb" style="background: linear-gradient(135deg, #1a0f0a, #1a0d08);">
+            <span style="position:relative;z-index:1">🖼️</span>
+            <div class="project-thumb-overlay"></div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span class="project-tag">Photoshop</span><span
+                class="project-tag">Lightroom</span><span class="project-tag">Creative</span></div>
+            <div class="project-title">Photo Editing Showcase</div>
+            <div class="project-desc">A curated portfolio of photo editing work — retouching, compositing, color
+              grading, and creative visual compositions.</div>
+            <div class="project-actions">
+              <!-- <a href="#" class="project-btn">🎨 View Gallery</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal delay-4">
+          <span class="coming-soon-badge">IN PROGRESS</span>
+          <div class="project-thumb" style="background: linear-gradient(135deg, #0a1020, #080e1a);">
+            <span style="position:relative;z-index:1">🎬</span>
+            <div class="project-thumb-overlay"></div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span class="project-tag">Premiere Pro</span><span
+                class="project-tag">Canva</span><span class="project-tag">Video</span></div>
+            <div class="project-title">Video Editing Reel</div>
+            <div class="project-desc">A compilation of video editing work — cuts, transitions, color grading, and motion
+              graphics for various creative projects.</div>
+            <div class="project-actions">
+              <!-- <a href="#" class="project-btn">▶️ Watch Reel</a> -->
+            </div>
+          </div>
+        </div>
+        <!--
+      <div class="project-card reveal delay-5">
+        <span class="coming-soon-badge">PLANNED</span>
+        <div class="project-thumb" style="background: linear-gradient(135deg, #0a1a0f, #08160d);">
+          <span style="position:relative;z-index:1">💡</span>
+          <div class="project-thumb-overlay"></div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">API</span><span class="project-tag">Frontend</span></div>
+          <div class="project-title">Future Web App</div>
+          <div class="project-desc">An upcoming web application project as I advance in JavaScript — integrating APIs, dynamic UI, and modern design patterns.</div>
+          <div class="project-actions">
+            <a href="#" class="project-btn ghost">Stay Tuned 👀</a>
+          </div>
+        </div>
+      </div>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== LEARNING JOURNEY ======================== 
+<section id="learning">
+  <div class="section-inner">
+    <div class="section-label reveal">Growth</div>
+    <h2 class="section-title reveal">Building My Future in<br><span class="grad-text">Web Development</span></h2>
+    <p class="section-sub reveal">A self-driven learning path toward becoming a skilled frontend developer — one milestone at a time.</p>
+    <div class="learn-grid">
+      <div class="learn-roadmap reveal">
+        <div class="learn-step done">
+          <div class="learn-step-left">
+            <div class="learn-step-dot">✓</div>
+            <div class="learn-step-line"></div>
+          </div>
+          <div class="learn-step-content">
+            <div class="learn-step-title">HTML Fundamentals</div>
+            <div class="learn-step-desc">Semantic HTML5, document structure, forms, and accessibility basics.</div>
+            <span class="learn-step-status">COMPLETED</span>
+          </div>
+        </div>
+        <div class="learn-step done">
+          <div class="learn-step-left">
+            <div class="learn-step-dot">✓</div>
+            <div class="learn-step-line"></div>
+          </div>
+          <div class="learn-step-content">
+            <div class="learn-step-title">CSS & Styling</div>
+            <div class="learn-step-desc">Flexbox, Grid, animations, custom properties, and responsive design.</div>
+            <span class="learn-step-status">COMPLETED</span>
+          </div>
+        </div>
+        <div class="learn-step active">
+          <div class="learn-step-left">
+            <div class="learn-step-dot">⚡</div>
+            <div class="learn-step-line"></div>
+          </div>
+          <div class="learn-step-content">
+            <div class="learn-step-title">JavaScript Essentials</div>
+            <div class="learn-step-desc">DOM manipulation, events, ES6+, async/await, and APIs.</div>
+            <span class="learn-step-status">IN PROGRESS</span>
+          </div>
+        </div>
+        <div class="learn-step active">
+          <div class="learn-step-left">
+            <div class="learn-step-dot">⚡</div>
+            <div class="learn-step-line"></div>
+          </div>
+          <div class="learn-step-content">
+            <div class="learn-step-title">Responsive Design</div>
+            <div class="learn-step-desc">Mobile-first layouts, breakpoints, and cross-device optimization.</div>
+            <span class="learn-step-status">IN PROGRESS</span>
+          </div>
+        </div>
+        <div class="learn-step future">
+          <div class="learn-step-left">
+            <div class="learn-step-dot">🎯</div>
+            <div class="learn-step-line"></div>
+          </div>
+          <div class="learn-step-content">
+            <div class="learn-step-title">Git & GitHub</div>
+            <div class="learn-step-desc">Version control, branching, pull requests, and collaborative development.</div>
+            <span class="learn-step-status">PLANNED</span>
+          </div>
+        </div>
+        <div class="learn-step future">
+          <div class="learn-step-left">
+            <div class="learn-step-dot">🎯</div>
+            <div class="learn-step-line"></div>
+          </div>
+          <div class="learn-step-content">
+            <div class="learn-step-title">UI/UX Design Principles</div>
+            <div class="learn-step-desc">User-centered design, wireframing, prototyping, and design systems.</div>
+            <span class="learn-step-status">PLANNED</span>
+          </div>
+        </div>
+        <div class="learn-step future">
+          <div class="learn-step-left">
+            <div class="learn-step-dot">🔮</div>
+            <div class="learn-step-line"></div>
+          </div>
+          <div class="learn-step-content">
+            <div class="learn-step-title">Frontend Framework</div>
+            <div class="learn-step-desc">React or Vue.js — component-based architecture and state management.</div>
+            <span class="learn-step-status">FUTURE</span>
+          </div>
+        </div>
+      </div>
+      <div class="learn-milestones reveal-right">
+        <div style="margin-bottom:1.5rem;">
+          <div class="section-label" style="margin-bottom:0.5rem;">Milestones</div>
+          <div style="font-size:0.85rem;color:var(--text-muted);line-height:1.7;">Every step forward is a win. These are the achievements marking Jerome's journey into tech.</div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-icon" style="background:rgba(0,255,157,0.08);border:1px solid rgba(0,255,157,0.2);">🎓</div>
+          <div class="milestone-body">
+            <div class="milestone-title">BS Information Technology Graduate</div>
+            <div class="milestone-desc">Completed a full IT degree program, building a strong foundation in computer science, networking, and systems.</div>
+          </div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-icon" style="background:var(--accent-dim);border:1px solid var(--border-accent);">🛡️</div>
+          <div class="milestone-body">
+            <div class="milestone-title">3+ Years in Trust & Safety</div>
+            <div class="milestone-desc">Built unmatched attention to detail and policy-based analytical skills at a Fortune 500 company.</div>
+          </div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-icon" style="background:var(--purple-dim);border:1px solid rgba(123,97,255,0.3);">💻</div>
+          <div class="milestone-body">
+            <div class="milestone-title">First Portfolio Website Built</div>
+            <div class="milestone-desc">Designed and coded this portfolio from scratch — a major milestone in the web development journey.</div>
+          </div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-icon" style="background:rgba(255,112,67,0.08);border:1px solid rgba(255,112,67,0.2);">⚙️</div>
+          <div class="milestone-body">
+            <div class="milestone-title">Transitioned to Product Support</div>
+            <div class="milestone-desc">Expanded technical skill set by moving into a Product Support Analyst role at Concentrix in 2025.</div>
+          </div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-icon" style="background:rgba(0,255,157,0.08);border:1px solid rgba(0,255,157,0.2);">🎯</div>
+          <div class="milestone-body">
+            <div class="milestone-title">Active Self-Learning in Progress</div>
+            <div class="milestone-desc">Actively studying HTML, CSS, JavaScript, and modern design tools toward a frontend development career.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+  <!-- ======================== TOOLS ======================== -->
+  <section id="tools">
+    <div class="section-inner">
+      <div class="section-label reveal">Stack</div>
+      <h2 class="section-title reveal">Tools &<br><span class="grad-text">Technologies</span></h2>
+      <p class="section-sub reveal">The tools I use daily — and the ones I'm actively adding to my arsenal.</p>
+      <div class="tools-grid">
+        <div class="tool-card reveal">
+          <div class="tool-icon">🌐</div>
+          <div class="tool-name">HTML5</div>
+        </div>
+        <div class="tool-card reveal delay-1">
+          <div class="tool-icon">🎨</div>
+          <div class="tool-name">CSS3</div>
+        </div>
+        <div class="tool-card reveal delay-2">
+          <div class="tool-icon">⚡</div>
+          <div class="tool-name">JavaScript</div>
+        </div>
+        <div class="tool-card reveal delay-3">
+          <div class="tool-icon">🐙</div>
+          <div class="tool-name">GitHub</div>
+        </div>
+        <div class="tool-card reveal delay-4">
+          <div class="tool-icon">💻</div>
+          <div class="tool-name">VS Code</div>
+        </div>
+        <div class="tool-card reveal delay-5">
+          <div class="tool-icon">🖌️</div>
+          <div class="tool-name">Photoshop</div>
+        </div>
+        <div class="tool-card reveal">
+          <div class="tool-icon">🎬</div>
+          <div class="tool-name">Premiere Pro</div>
+        </div>
+        <div class="tool-card reveal delay-1">
+          <div class="tool-icon">🟦</div>
+          <div class="tool-name">Canva</div>
+        </div>
+        <div class="tool-card reveal delay-2">
+          <div class="tool-icon">🪟</div>
+          <div class="tool-name">Windows</div>
+        </div>
+        <div class="tool-card reveal delay-3">
+          <div class="tool-icon">🔧</div>
+          <div class="tool-name">Basic Networking</div>
+        </div>
+        <div class="tool-card reveal delay-4">
+          <div class="tool-icon">📊</div>
+          <div class="tool-name">MS Office</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== GAMER & CREATIVE ======================== -->
+  <section id="gamer" style="background:var(--bg-secondary)">
+    <div class="section-inner">
+      <div class="section-label reveal">Beyond Work</div>
+      <h2 class="section-title reveal">The Person<br><span class="grad-text">Behind the Screen</span></h2>
+      <p class="section-sub reveal">What drives Jerome beyond the 9-to-5 — personality, passions, and the lifestyle that
+        shapes his work ethic.</p>
+      <div class="gamer-grid reveal">
+        <div class="gamer-main">
+          <div class="gamer-accent-line"></div>
+          <div style="margin-bottom:1rem;">
+            <div class="gamer-title">Gamer. Cyclist. Creator.</div>
+            <div class="gamer-sub">These aren't just hobbies — they're mindsets that carry over into professional life.
+              Gaming builds strategic thinking and precision. Cycling builds discipline and endurance. Creative editing
+              builds an eye for quality design and aesthetics.</div>
+          </div>
+          <div class="pc-specs">
+            <div class="pc-specs-title">🖥️ Personal Workstation</div>
+            <div class="pc-spec-row"><span class="pc-spec-key">CPU</span><span class="pc-spec-val">AMD Ryzen 5
+                5500</span></div>
+            <div class="pc-spec-row"><span class="pc-spec-key">GPU</span><span class="pc-spec-val">NVIDIA GTX
+                1650</span></div>
+            <div class="pc-spec-row"><span class="pc-spec-key">OS</span><span class="pc-spec-val">Windows 11</span>
+            </div>
+            <div class="pc-spec-row"><span class="pc-spec-key">Primary Use</span><span class="pc-spec-val">Gaming,
+                Editing, Dev Work</span></div>
+          </div>
+          <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.7;">
+            Whether it's staying patient through a grinding raid, pushing through the final kilometers of a morning
+            ride, or perfecting a color grade — the same qualities show up at work: <span
+              style="color:var(--accent);font-weight:600;">patience, persistence, and precision</span>.
+          </div>
+        </div>
+        <div class="gamer-hobbies">
+          <div class="hobby-item">
+            <span class="hobby-icon">🎮</span>
+            <div class="hobby-text">
+              <div class="hobby-name">Gaming Enthusiast</div>
+              <div class="hobby-desc">Strategy, FPS, and RPG titles. Gaming sharpens decision-making, reflexes, and
+                strategic thinking.</div>
+            </div>
+          </div>
+          <div class="hobby-item">
+            <span class="hobby-icon">🚴</span>
+            <div class="hobby-text">
+              <div class="hobby-name">Cyclist</div>
+              <div class="hobby-desc">Regular cycling builds discipline, endurance, and a clear mind for
+                problem-solving.</div>
+            </div>
+          </div>
+          <div class="hobby-item">
+            <span class="hobby-icon">📸</span>
+            <div class="hobby-text">
+              <div class="hobby-name">Photo Editor</div>
+              <div class="hobby-desc">Creative photo manipulation and retouching — training the eye for visual quality
+                and design.</div>
+            </div>
+          </div>
+          <div class="hobby-item">
+            <span class="hobby-icon">🎬</span>
+            <div class="hobby-text">
+              <div class="hobby-name">Video Creator</div>
+              <div class="hobby-desc">Editing and producing videos — building narrative sense, timing, and visual
+                storytelling skills.</div>
+            </div>
+          </div>
+          <div class="hobby-item">
+            <span class="hobby-icon">📚</span>
+            <div class="hobby-text">
+              <div class="hobby-name">Continuous Learner</div>
+              <div class="hobby-desc">Always upskilling — whether in web dev, design, or the latest tech trends. Growth
+                is the goal.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== CONTACT ======================== -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-label reveal">Get In Touch</div>
+      <h2 class="section-title reveal">Let's Work<br><span class="grad-text">Together</span></h2>
+      <p class="section-sub reveal">Open to full-time IT roles, freelance projects, and collaboration opportunities.
+        Let's build something great.</p>
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <div class="contact-card">
+            <div class="contact-card-icon">✉️</div>
+            <div class="contact-card-body">
+              <div class="contact-card-label">Email</div>
+              <div class="contact-card-val">jNofuente1998@gmail.com</div>
+            </div>
+            <button class="copy-btn" onclick="copyEmail()">Copy</button>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">📞</div>
+            <div class="contact-card-body">
+              <div class="contact-card-label">Mobile Number</div>
+              <div class="contact-card-val">+63 960 813 5785</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">📍</div>
+            <div class="contact-card-body">
+              <div class="contact-card-label">Location</div>
+              <div class="contact-card-val">Manila, Philippines 🇵🇭</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">💼</div>
+            <div class="contact-card-body">
+              <div class="contact-card-label">Status</div>
+              <div class="contact-card-val" style="color:var(--green)">Available for Opportunities ✓</div>
+            </div>
+          </div>
+          <a href="#" class="btn-primary" style="justify-content:center;margin-top:0.5rem;">📄 Download Resume</a>
+          <!-- <div class="hero-socials" style="margin-top:0.25rem;">
+          <a href="mailto:jNofuente1998@gmail.com" class="social-icon" title="Email">✉️</a>
+          <a href="https://www.instagram.com/jerome.hehe/" class="social-icon" title="Instagram">📸</a>
+          <a href="https://www.linkedin.com/in/jnofuente/" class="social-icon" title="LinkedIn">💼</a>
+          <a href="https://www.facebook.com/Jeromeqwe" class="social-icon" title="Facebook">📘</a>
+          </div> -->
+        </div>
+        <div class="about-portrait2">
+          <div class="about-portrait-icon">👨‍💻</div>
+          <div class="about-portrait-text">Have a project in mind?</div>
+          <div class="about-portrait-text">Let’s make it happen together</div>
+        </div>
+
+
+
+        <!--
+      <div class="contact-form-wrap reveal-right">
+        <div id="formSuccess" class="form-success">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">✅</div>
+          <div style="font-size:1.1rem;color:var(--green);margin-bottom:0.5rem;">Message Sent!</div>
+          <div style="font-size:0.85rem;color:var(--text-muted)">Thanks for reaching out, Jerome will get back to you soon.</div>
+        </div>
+        <div id="contactForm">
+          <div class="form-group">
+            <label class="form-label" for="fname">Your Name</label>
+            <input class="form-input" id="fname" type="text" placeholder="John Smith"/>
+            <span class="form-error" id="fnameErr">Please enter your name.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="femail">Email Address</label>
+            <input class="form-input" id="femail" type="email" placeholder="john@company.com"/>
+            <span class="form-error" id="femailErr">Please enter a valid email.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fsubject">Subject</label>
+            <input class="form-input" id="fsubject" type="text" placeholder="Job Opportunity / Project Inquiry"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fmsg">Message</label>
+            <textarea class="form-textarea" id="fmsg" placeholder="Tell me about your project or opportunity..."></textarea>
+            <span class="form-error" id="fmsgErr">Please enter a message.</span>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Send Message →</button>
+        </div>
+        -->
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">JN<span>.</span></div>
+        <div class="footer-tagline">Aspiring Web Developer · Manila, PH</div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="mailto:jNofuente1998@gmail.com" class="social-icon" title="Email">✉️</a>
+        <a href="https://www.instagram.com/jerome.hehe/" class="social-icon" title="Instagram">📸</a>
+        <a href="https://www.linkedin.com/in/jnofuente/" class="social-icon" title="LinkedIn">💼</a>
+        <a href="https://www.facebook.com/Jeromeqwe" class="social-icon" title="Facebook">📘</a>
+      </div>
+      <div class="footer-copy">Designed &amp; Built by <span>Jerome Nofuente</span> · 2025 · Manila, Philippines</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
