@@ -293,7 +293,6 @@ nav.scrolled {
   display: none;
   flex-direction: column;
   gap: 5px;
-  cursor: none;
   padding: 4px;
 }
 
