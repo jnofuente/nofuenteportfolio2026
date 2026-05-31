@@ -958,9 +958,11 @@ section {
 }
 
 .about-portrait {
-  width: 280px;
-  height: 350px;
+  width: 380px;
+  height: 450px;
   background: linear-gradient(135deg, var(--bg-primary), var(--bg-card));
+  background-image: url("./images/JNpro1.png");
+  background-size: cover;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   display: flex;
